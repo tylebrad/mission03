@@ -1,6 +1,6 @@
 # CS 3308 Mission 03 -- Queues
 
-## Due: Sunday January 27, 2019 @ 2300
+## Due: Sunday February 03, 2019 @ 2300
 
 ## Purpose
 * Build a Queue Implementation using a Wrapped LinkedList
