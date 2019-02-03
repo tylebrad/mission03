@@ -28,20 +28,20 @@ public class SinglyLinkedList<E> implements List<E> {
         }
 
         // gets data from node
-        private E getData(){
+        public E getData(){
             return data;
         }
 
         // returning next node
-        private Node<E> getNext(){
+        public Node<E> getNext(){
             return next;
         }
         // setting data to next node
-        private void setNext(Node<E> next){
+        public void setNext(Node<E> next){
             this.next = next;
         }
         // returns previous node
-        private Node<E> getPrev(){return prev;}
+        public Node<E> getPrev(){return prev;}
 
     }
 
