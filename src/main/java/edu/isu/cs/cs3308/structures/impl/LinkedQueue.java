@@ -3,75 +3,40 @@
  * CS 3308
  * Mission 03
  *
- * LinkedQueue class, implementing Queue
+ * LinkedQueue class, implementing Queue interface
  */
 package edu.isu.cs.cs3308.structures.impl;
 
 import edu.isu.cs.cs3308.structures.Queue;
-import edu.isu.cs.cs3308.structures.impl.SinglyLinkedList;
 
-public class LinkedQueue<E> implements Queue {
-    private  int size = 0;
+public class LinkedQueue<E> implements Queue<E> {
+    // Creation of SLL 'list' to build a Queue upon
+    private SinglyLinkedList<E> list = new SinglyLinkedList<>();
+    // New Queue
+    public LinkedQueue(){}
+    // declaring he Queue's size, front, and ack
+    private int size = 0;
     private Node<E> front = null;
     private Node<E> back = null;
 
-    /**
-     * Node class nested within DLL
-     * @param <E>
-     */
-    public static class Node<E>{
+    // Next Node Class
+    private class Node<E>{
         private E data;
-        private DoublyLinkedList.Node<E> next;
-        private DoublyLinkedList.Node<E> prev;
-
-        /**
-         * Node Constructor
-         * @param d Node Data
-         * @param n Node's "Next" reference
-         * @param p Node's "Previous" reference
-         */
-        public Node(E d, DoublyLinkedList.Node<E> n, DoublyLinkedList.Node<E> p){
-            this.data = d;
-            this.next = n;
-            this.prev = p;
-        }
-
-        public E getData(){
+        private Node<E> next;
+        // gets data from node
+        private E getData(){
             return data;
-        }
-
-        public void setData(E data) {
-            this.data = data;
-        }
-
-        public DoublyLinkedList.Node<E> getNext(){
-            return next;
-        }
-
-        public void setNext(DoublyLinkedList.Node<E> next) {
-            this.next = next;
-        }
-
-        public DoublyLinkedList.Node<E> getPrev(){
-            return prev;
-        }
-
-        public void setPrev(DoublyLinkedList.Node<E> prev){
-            this.prev = prev;
         }
     }
 
     @Override
     public int size() {
-        return this.size;
+        return size;
     }
 
     @Override
     public boolean isEmpty() {
-        if (front == null)
-            return true;
-        else
-            return false;
+        return list.isEmpty();
     }
 
     /**
@@ -79,22 +44,25 @@ public class LinkedQueue<E> implements Queue {
      * @param element Element to be inserted.
      */
     @Override
-    public void offer(Object element) {
+    public void offer(E element) {
         if(element == null)
             return;
-
-        if(size() == 0)
-            front.insert(element);
+        list.addLast(element);
+        size++;
 
     }
 
     @Override
-    public Object peek() {
-        return null;
+    public E peek() {
+        if(isEmpty())
+            return null;
+        return front.getData();
     }
 
     @Override
-    public Object poll() {
+    public E poll() {
+        if(isEmpty())
+            return null;
         return null;
     }
 

@@ -17,34 +17,32 @@ public class SinglyLinkedList<E> implements List<E> {
      */
     public static class Node<E>{
         // declaring variables
-        public E data;
-        public Node<E> next;
-        public Node<E> prev;
+        private E data;
+        private Node<E> next;
+        private Node<E> prev;
 
         // Node constructor
-        public Node(E d, Node<E> n){
+        private Node(E d, Node<E> n){
             this.data = d;
             this.next = n;
         }
 
         // gets data from node
-        public E getData(){
+        private E getData(){
             return data;
         }
 
-        public void setData(E data) {this.data = data;}
         // returning next node
-        public Node<E> getNext(){
+        private Node<E> getNext(){
             return next;
         }
         // setting data to next node
-        public void setNext(Node<E> next){
+        private void setNext(Node<E> next){
             this.next = next;
         }
-        public Node<E> getPrev(){return prev;}
-        public void setPrev(Node<E> prev){
-            this.prev = prev;
-        }
+        // returns previous node
+        private Node<E> getPrev(){return prev;}
+
     }
 
     //Instance variables for SinglyLinked List
